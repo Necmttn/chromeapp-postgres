@@ -1,7 +1,7 @@
 {
-  "name": "pg",
+  "name": "mochi-pg",
   "version": "7.11.0",
-  "description": "PostgreSQL client - pure javascript & libpq with the same API",
+  "description": "PostgreSQL chrome app client",
   "keywords": [
     "database",
     "libpq",
@@ -11,15 +11,17 @@
     "postgresql",
     "rdbms"
   ],
-  "homepage": "http://github.com/brianc/node-postgres",
+  "homepage": "http://github.com/osmanmesutozcan/mochi-postgres",
   "repository": {
     "type": "git",
-    "url": "git://github.com/brianc/node-postgres.git"
+    "url": "git://github.com/osmanmesutozcan/mochi-postgres.git"
   },
   "author": "Brian Carlson <brian.m.carlson@gmail.com>",
   "main": "./lib",
   "dependencies": {
     "buffer-writer": "2.0.0",
+    "eventemitter3": "^4.0.0",
+    "install": "^0.13.0",
     "packet-reader": "1.0.0",
     "pg-connection-string": "0.1.3",
     "pg-pool": "^2.0.4",
@@ -31,12 +33,16 @@
     "async": "0.9.0",
     "bluebird": "3.5.2",
     "co": "4.6.0",
-    "eslint": "^4.19.1",
-    "eslint-plugin-node": "^6.0.1",
-    "pg-copy-streams": "0.3.0"
+    "pg-copy-streams": "0.3.0",
+    "prettier": "^1.18.2",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-merge": "^4.2.1"
   },
   "minNativeVersion": "2.0.0",
   "scripts": {
+    "watch": "webpack --config webpack/webpack.dev.js --watch",
+    "build": "webpack --config webpack/webpack.dev.js",
     "test": "make test-all"
   },
   "license": "MIT",
